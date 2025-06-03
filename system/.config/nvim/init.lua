@@ -1,4 +1,4 @@
-print "hello baby"
+require "amheklerior/options"
 
 --[[ useful keymaps to avoid restarting neovim only to test lua code ]]
 

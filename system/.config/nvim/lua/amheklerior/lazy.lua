@@ -22,11 +22,10 @@ require('lazy').setup({
   -- install and setup plugins from the plugins directory
   -- NOTE: plugins will be installed in the $XDG_DATA_HOME/nvim/lazy/ dir
   spec = {
-    { import = "amheklerior.plugins" },
+    { import = "amheklerior.plugins" },
   },
 
   -- automatically check for plugin updates
   checker = { enabled = true },
-
 })
 

@@ -8,3 +8,6 @@ vim.g.maplocalleader = ' '
 require "amheklerior/options"
 require "amheklerior/keymaps"
 
+-- load the plugin manager and setup plugins
+require "amheklerior/lazy"
+

@@ -7,6 +7,7 @@ vim.g.maplocalleader = ' '
 -- load configurations
 require "amheklerior/options"
 require "amheklerior/keymaps"
+require "amheklerior/autocmd"
 
 -- load the plugin manager and setup plugins
 require "amheklerior/lazy"

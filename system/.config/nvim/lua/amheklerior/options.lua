@@ -1,3 +1,7 @@
+-- NOTE: these are all the default configurations for neovim that will be loaded at startup.
+--  to override some of these only for specific type of files, create a file into the /after/ftplugin directory
+--  into the root nvim config dir, for that specific filetype.
+
 local set = vim.opt
 
 -- enable 24-bit RGB colors
@@ -24,7 +28,7 @@ set.expandtab = true
 set.tabstop = 2
 
 -- number of spaces inserted for each indentation
-set.shiftwidth = 2
+set.shiftwidth = 4
 
 -- don't wrap long lines
 set.wrap = false

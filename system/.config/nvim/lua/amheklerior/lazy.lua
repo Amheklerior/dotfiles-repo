@@ -1,6 +1,6 @@
 
 -- set the installation path for the Lazy plugin manager to $XDG_DATA_HOME/nvim/lazy/lazy.nvim
--- NOTE: $XDG_DATA_HOME/nvim/ dir is where all plugins will be installed
+-- NOTE: $XDG_DATA_HOME/nvim/lazy dir is where all plugins will be installed, including lazy.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 -- install Lazy, if not already installed
@@ -16,11 +16,9 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 -- setup lazy.nvim
--- NOTE: you can find the full list of all the config options
---  at https://lazy.folke.io/configuration
+-- NOTE: full list of all the config options at https://lazy.folke.io/configuration
 require('lazy').setup({
   -- install and setup plugins from the plugins directory
-  -- NOTE: plugins will be installed in the $XDG_DATA_HOME/nvim/lazy/ dir
   spec = {
     { import = "amheklerior.plugins" },
   },

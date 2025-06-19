@@ -1,6 +1,7 @@
 
 -- set <space> as the leader key
--- NOTE: Must happen before plugins are loaded
+-- NOTE: Must happen before plugins are loaded, otherwhise
+--  they'll be configured with the wrong leader-key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 

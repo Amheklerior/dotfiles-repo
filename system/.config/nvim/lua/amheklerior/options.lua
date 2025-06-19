@@ -1,6 +1,6 @@
 -- NOTE: these are all the default configurations for neovim that will be loaded at startup.
---  to override some of these only for specific type of files, create a file into the /after/ftplugin directory
---  into the root nvim config dir, for that specific filetype.
+--  to override some of these only for specific type of files, create a file into the
+--  /after/ftplugin directory into the root dir (.config/nvim), for that specific filetype.
 
 local set = vim.opt
 

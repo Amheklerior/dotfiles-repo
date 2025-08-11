@@ -28,7 +28,7 @@ set.expandtab = true
 set.tabstop = 2
 
 -- number of spaces inserted for each indentation
-set.shiftwidth = 4
+set.shiftwidth = 2
 
 -- don't wrap long lines
 set.wrap = false

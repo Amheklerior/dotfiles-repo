@@ -602,7 +602,7 @@ echo "$LOG_PREFIX configuring the Desktop..."
 # all wallpapers are in `/Library/Desktop Pictures/`.
 # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 # sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-# sudo ln -s $HOME/.dotfiles-repo/wallpapers/sunrise-deer.jpeg /System/Library/CoreServices/DefaultDesktop.jpg
+# sudo ln -s $HOME/.dotfiles/wallpapers/sunrise-deer.jpeg /System/Library/CoreServices/DefaultDesktop.jpg
 
 # Hide all icons
 defaults write com.apple.finder CreateDesktop -bool false

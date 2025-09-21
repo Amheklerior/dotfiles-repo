@@ -2,7 +2,7 @@
 
 local LOG_PREFIX="[system bootstrap]:"
 
-local DOTFILES_REPO="$HOME/.dotfiles-repo"
+local DOTFILES_REPO="$HOME/.dotfiles"
 local SCRIPTS="$DOTFILES_REPO/scripts"
 local XDG_CONFIG_HOME="$HOME/.config"
 local XDG_DATA_HOME="$HOME/.local/share"
@@ -43,7 +43,7 @@ _run set_precommit_hook
 _run setup_dev_env
 
 # switch dotfiles repo from https protocol to SSH
-cd $DOTFILES_REPO && git remote set-url origin git@github.com:Amheklerior/dotfiles.git
+cd $DOTFILES_REPO && git remote set-url origin git@github.com:Amheklerior/dotfiles-repo.git
 
 # setup machine for work
 _prompt_for_confirmation "$LOG_PREFIX Do you want to setup this machine as a work machine?"

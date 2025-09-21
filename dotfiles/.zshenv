@@ -11,7 +11,7 @@ export PERSONAL="$HOME/dev/personal"
 export WORK="$HOME/dev/heritage-holdings"
 
 # path to the dotfiles repo
-export DOTFILES_REPO="$HOME/.dotfiles-repo"
+export DOTFILES_REPO="$HOME/.dotfiles"
 
 # path to the bin folder
 export BIN="$DOTFILES_REPO/bin"

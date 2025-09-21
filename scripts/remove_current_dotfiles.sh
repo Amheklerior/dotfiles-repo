@@ -4,7 +4,7 @@ local LOG_PREFIX="[remove current dotfiles]:"
 
 # save the dotfiles in the following directory
 # if the -c option is privided, save the item into the .config subdir
-local BACKUP_DIR="$HOME/.dotfiles-repo/backups/$(date +%Y-%m-%d_%H-%M)"
+local BACKUP_DIR="$HOME/.dotfiles/backups/$(date +%Y-%m-%d_%H-%M)"
 local _backup_and_remove() {
   [[ $* != *"-c"* ]] && to="$BACKUP_DIR" || to=$BACKUP_DIR/.config
   [ -e $1 ] && mv $1 $to

@@ -7,7 +7,7 @@ local _load_settings() {
   # silence any 'Domain XXX not found' errors (prefs get set anyway)
   # NOTE: the error is only thrown when using defaults via this script,
   # not when executing directly the commands on the shell prompt.
-  source $HOME/.dotfiles-repo/prefs/apps/$1-settings.sh 2> /dev/null
+  source $HOME/.dotfiles/prefs/apps/$1-settings.sh 2> /dev/null
 }
 
 _load_settings apple-mail

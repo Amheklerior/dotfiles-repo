@@ -7,7 +7,7 @@ local LOG_PREFIX="[remove current dotfiles]:"
 local BACKUP_DIR="$HOME/.dotfiles/backups/$(date +%Y-%m-%d_%H-%M)"
 local _backup_and_remove() {
   [[ $* != *"-c"* ]] && to="$BACKUP_DIR" || to=$BACKUP_DIR/.config
-  [ -e $1 ] && mv $1 $to
+  [ -e $1 ] && mv $1 $to && echo "$LOG_PREFIX $1 backed up and removed" || :
 }
 
 # create the backup dir if it doesn't exist
@@ -33,4 +33,4 @@ _backup_and_remove $XDG_CONFIG_HOME/plugins -c
 _backup_and_remove $XDG_CONFIG_HOME/.bunfig.toml -c
 _backup_and_remove $XDG_CONFIG_HOME/starship.toml -c
 
-echo "$LOG_PREFIX created a backup of current dotfiles ($BACKUP_DIR)"   
+echo "$LOG_PREFIX backup completed ($BACKUP_DIR)"   

@@ -10,6 +10,6 @@ window-padding-balance = true
 # prevent shell integration to override cursor style
 shell-integration-features = no-cursor
 
-# set initial window size (in grid cells)
-window-width = 200
-window-height = 50
+# restore last window size and position
+window-save-state = always
+

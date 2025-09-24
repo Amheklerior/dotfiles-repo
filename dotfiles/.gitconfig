@@ -33,6 +33,11 @@
 	# use git-delta as pager
 	pager = delta
 
+	# ensure proper line endings
+	# NOTE: it should be 'input' for unix systems and 'true' for windows ones
+	# https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings
+	autocrlf = input
+
 [interactive]
 	diffFilter = delta --color-only
 

@@ -11,7 +11,7 @@ if [ -e "$HOME/.ssh/personal" ]; then
 fi
 
 # setup public and private personal SSH keys
-echo "$LOG_PREFIX setting up personal ssh keys"
-cp $DOTFILES_REPO/ssh-keys/personal $DOTFILES_REPO/ssh-keys/personal.pub $HOME/.ssh
-echo "$LOG_PREFIX Please enter the decryption password for decrypting the private ssh keys"
-ansible-vault decrypt $HOME/.ssh/personal && echo "$LOG_PREFIX ssh keys setup complete"
+echo "$LOG_PREFIX setting up personal ssh keys..."
+echo "$LOG_PREFIX Please enter the decryption password for decrypting the private ssh key"
+gpg --decrypt $DOTFILES_REPO/ssh-keys/personal.gpg > $HOME/.ssh/personal
+cp $DOTFILES_REPO/ssh-keys/personal.pub $HOME/.ssh && echo "$LOG_PREFIX personal ssh-keys setup complete"

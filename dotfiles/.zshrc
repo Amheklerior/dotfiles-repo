@@ -53,6 +53,10 @@ export WORDCHARS="*?[]~=&;!#$%^(){}<>"
 # Delete word by word with option+delete 
 bindkey '^[^?' backward-kill-word
 
+# Don’t record commands starting with a leading space
+setopt HIST_IGNORE_SPACE
+
+
 ### ZOXIDE
 
 # load zoxide

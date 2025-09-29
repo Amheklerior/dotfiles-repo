@@ -10,10 +10,7 @@ fi
 echo "$LOG_PREFIX setting up github cli"
 
 # decrypt and copy the github ACCESS_TOKEN to the clipboard
-cp $DOTFILES_REPO/private/github.token $XDG_DATA_HOME/gh-login-token
-echo "$LOG_PREFIX Please enter the decryption password for copying the github login token"
-ansible-vault decrypt $XDG_DATA_HOME/gh-login-token
-cat $XDG_DATA_HOME/gh-login-token | pbcopy
+gpg --decrypt $DOTFILES_REPO/secrets/github-access-token | pbcopy
 echo "$LOG_PREFIX token successfully copeid on your clipboard! Paste it during the installation process..."
 
 # login to the github account

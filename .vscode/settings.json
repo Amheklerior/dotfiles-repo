@@ -1,6 +1,19 @@
 {
   "files.associations": {
     // apply the same syntax highlighting used for `Brewfile` (i.e. Ruby)
-    "*.bundle": "ruby"
-  }
+    "*.bundle": "ruby",
+
+    // ensure no weird highlighting is applied to the files in the /secrets directory
+    "*-code": "plaintext",
+    "*-codes": "plaintext",
+    "*-token": "plaintext",
+    "*-key": "plaintext"
+  },
+
+  // don't attempt displaying encrypted binary files
+  // NOTE: these files won't be visible in vscode's file explorer
+  //    and won't be indexed in ⌘ + P search results
+  "files.exclude": {
+    "**/*.gpg": true
+  },
 }

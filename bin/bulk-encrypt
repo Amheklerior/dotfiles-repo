@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+# default directory if none is given
+local DEFAULT_DIR="$DOTFILES_REPO/secrets"
+
+# pick target dir
+local TARGET_DIR="${1:-$DEFAULT_DIR}"
+if [[ ! -d "$TARGET_DIR" ]]; then
+  echo "Error: directory '$TARGET_DIR' does not exist."
+  exit 1
+fi
+
+# Ask for a passphrase to be used for encryption/decription
+read -s "PASSPHRASE?Enter passphrase: "
+echo
+
+# enable extended globbing in order to use "negation" (^pattern) and qualifiers
+setopt EXTENDED_GLOB
+
+# encrypt all files with no extension with no user prompt 
+# NOTE: the loop targets all files with no extension:
+#   ^*.*: select names that do NOT match (^) the pattern (*.*) 
+#   (N.): use empty list if there's no match (N) and use plain files only (.)
+for file in "$TARGET_DIR"/^*.*(N.); do
+  echo "Encrypting: ${file:t} -> ${file:t}.gpg"
+  gpg --batch --yes --quiet \
+      --passphrase "$PASSPHRASE" \
+      --output "$file.gpg" \
+      --symmetric "$file"
+done
+
+# cleanup
+unset PASSPHRASE

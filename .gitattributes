@@ -1,7 +1,13 @@
 
 # Treat all encrypted .gpg files as binaries
-# NOTE: binary is a shorthand for: -text diff merge
-#  text: don't attempt automatic CRLF line ending conversions
-#  diff:  avoid showing line-by-line changes (disable textual diffing)
-#  merge: treat these files as opaque blobs (disable text-based merge drivers)
-**/*.gpg binary
+# NOTE: why not just `binary`? Why also the filter=lfs attribute?
+#   Unfortunately, while specifying only 'binary' works for git, it does not for GitHub.
+#   You would expect GitHub to not show any diff within a PR for these binary files and only
+#   show the "Binary file not shown" message instead. However, this does not happen.
+#   Some .gpg files would be correctly treated as binaries, while for others GitHub attempts to show
+#   a diff (resulting only in gibrish chars displayed).
+#   This happens because GitHub applies its own heuristics to determine wheter to show or not the diff.
+#   GitHub is able to show diffing for some binaries (.png for example).
+#   Adding the "lfs" filter avoids this issue, enforcing GitHub to never show a diff for .gpg files.
+**/*.gpg binary filter=lfs
+

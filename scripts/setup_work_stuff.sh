@@ -35,6 +35,3 @@ fi
 
 # setup work laptop via automation script
 curl -fsSL -H "Authorization: token $GITHUB_TOKEN" "https://raw.githubusercontent.com/heritageholdings/dev-onboarding/refs/heads/main/setup.sh" | /bin/bash
-
-# cleanup temporary files
-rm $XDG_DATA_HOME/gh-login-token

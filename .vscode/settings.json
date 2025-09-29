@@ -8,5 +8,12 @@
     "*-codes": "plaintext",
     "*-token": "plaintext",
     "*-key": "plaintext"
-  }
+  },
+
+  // don't attempt displaying encrypted binary files
+  // NOTE: these files won't be visible in vscode's file explorer
+  //    and won't be indexed in ⌘ + P search results
+  "files.exclude": {
+    "**/*.gpg": true
+  },
 }

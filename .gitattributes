@@ -1,0 +1,7 @@
+
+# Treat all encrypted .gpg files as binaries
+# NOTE: binary is a shorthand for: -text diff merge
+#  text: don't attempt automatic CRLF line ending conversions
+#  diff:  avoid showing line-by-line changes (disable textual diffing)
+#  merge: treat these files as opaque blobs (disable text-based merge drivers)
+**/*.gpg binary

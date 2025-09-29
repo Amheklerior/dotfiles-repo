@@ -11,3 +11,12 @@ playground
 
 # dotfiles backups
 backups
+
+# ensure secrets are not leaked in their clear form
+secrets/*
+!secrets/*.gpg
+
+# ensure private ssh keys are not leaked in their clear form 
+ssh-keys/*
+!ssh-keys/*.gpg
+!ssh-keys/*.pub

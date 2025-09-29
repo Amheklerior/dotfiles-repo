@@ -10,9 +10,9 @@ if [ -e "$HOME/.ssh/$SSH_KEYNAME" ]; then
   echo "$LOG_PREFIX ssh keys to access work production server are already set up"
 else
   echo "$LOG_PREFIX setting up work-related ssh keys"
-  cp $DOTFILES_REPO/ssh-keys/$SSH_KEYNAME $DOTFILES_REPO/ssh-keys/$SSH_KEYNAME.pub $HOME/.ssh
-  echo "$LOG_PREFIX Please enter the decryption password for decrypting the private ssh keys"
-  ansible-vault decrypt $HOME/.ssh/$SSH_KEYNAME && echo "$LOG_PREFIX ssh keys setup complete"
+  echo "$LOG_PREFIX Please enter the decryption password for decrypting the private ssh key"
+  gpg --decrypt $DOTFILES_REPO/ssh-keys/$SSH_KEYNAME.gpg > $HOME/.ssh/$SSH_KEYNAME
+  cp $DOTFILES_REPO/ssh-keys/work-server.pub $HOME/.ssh && echo "$LOG_PREFIX work ssh-keys setup complete"
 fi
 
 # login into the Heritage Holdings npm registry hosted on Github

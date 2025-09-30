@@ -86,7 +86,7 @@ Restart the system to make sure all new preferences get loaded.
 
 Go to `System Settings` > `Privacy & Security` > `FileVault`, and turn it on.
 
-Make sure to save the recovery-key on the [dotfiles repo's `/private` dir](../private/).
+Make sure to save the recovery-key on the [dotfiles repo's `/secrets` dir](../secrets/).
 
 ## Setup apps preferences
 

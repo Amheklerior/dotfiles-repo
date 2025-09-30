@@ -81,6 +81,8 @@ alias p='pnpm'
 # ansible shortcuts
 alias encrypt="ansible-vault encrypt"
 alias decrypt="ansible-vault decrypt"
+alias bulk-encrypt="ansible-vault encrypt $DOTFILES_REPO/secrets/*"
+alias bulk-decrypt="ansible-vault decrypt $DOTFILES_REPO/secrets/*"
 
 # tail log files with syntax highlighting
 alias watch="tail -f $1 | bat --paging=never -l log"

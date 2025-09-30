@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# run gitleaks on every commit to make sure I don't accidentally push any secret to the repo
+gitleaks git --pre-commit --staged
+
+# NOTE: this is necessary to prevent this checking script to pickup itself when modified
+local SECRETS_DIR_NAME="secrets"
+
+# get the list of staged sensitive file paths
+local staged_secrets=$(git diff --staged | rg "diff --git a/$SECRETS_DIR_NAME/" | sed -E "s/.*(secrets\/.*)/\1/g" | sed "s/ //g" | uniq)
+
+# no sensitive file committed, no need to proceed with further checks
+if [ -z $(echo $staged_secrets) ]; then
+  echo "[INFO] All good! no leakage of sensitive info has been found"
+  exit 0
+fi
+
+# sign of a securely encrypted file
+local ENCRYPTION_SIGN="ANSIBLE_VAULT;1.1;AES256"
+
+# check no secret gets leaked un-encrypted with the next commit
+if ! [ $(echo $staged_secrets | sed "s/ /\n/g" | wc -l) = $(echo $staged_secrets | xargs cat | rg $ENCRYPTION_SIGN | wc -l) ]; then
+  echo "[ERROR]: Leakage! Be sure to encrypt every sensitive information"
+  return 1
+fi
+
+echo "[INFO] All good! no leakage of sensitive info has been found"
+
+# TODO: add ssh key leakage

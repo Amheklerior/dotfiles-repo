@@ -1,6 +1,14 @@
 {
   "files.associations": {
     // apply the same syntax highlighting used for `Brewfile` (i.e. Ruby)
-    "*.bundle": "ruby"
+    "*.bundle": "ruby",
+
+    // ensure no weird highlighting is applied to the files in the /secrets directory
+    "*-key": "plaintext",
+    "*-code": "plaintext",
+    "*-codes": "plaintext",
+    "*-token": "plaintext",
+    "personal": "plaintext",
+    "work-server": "plaintext"
   }
 }

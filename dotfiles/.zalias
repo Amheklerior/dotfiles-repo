@@ -11,8 +11,6 @@ alias quit="exit"
 # list aliases, paths, functions, ...
 alias aliases="alias | sed 's/=.*//'"
 alias func="declare -f | grep '^[a-z].* ().*$' | sed 's/().*$//g'"
-alias path="echo $PATH | sed 's/:/\n/g'"
-alias fpath="echo $FPATH | sed 's/:/\n/g'"
 
 # Recursively remove Apple meta files
 alias rmds="find . -type f -name '*.DS_Store' -ls -delete"

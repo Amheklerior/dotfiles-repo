@@ -4,9 +4,8 @@ local LOG_PREFIX="[setup dev env]:"
 
 echo "$LOG_PREFIX setting up node dev env..."
 
-# create node and corepack install dirs
-mkdir -p $HOME/.fnm $HOME/.corepack && \
-echo "$LOG_PREFIX created node and corepack install dirs: ~/.fnm, ~/.corepack"
+# create node install dir
+mkdir -p $HOME/.fnm && echo "$LOG_PREFIX created node install dir: ~/.fnm"
 
 # install LTS node version
 if [[ ! $(fnm list | grep -q lts) ]]; then

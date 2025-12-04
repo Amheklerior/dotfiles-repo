@@ -20,6 +20,10 @@ local _run() {
 # ensure the process exits on any error
 set -e
 
+# Ask for the admin password upfront
+echo "$LOG_PREFIX Requesting admin privileges..."
+sudo -v
+
 # load utility functions
 source "$SCRIPTS/utils.sh"
 

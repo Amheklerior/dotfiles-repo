@@ -9,5 +9,5 @@ else
   cd $HOME/.dotfiles && git pull || exit 1
 fi
 
-# run the bootstrap script
-cd $HOME/.dotfiles && ./setup-system.sh
+# run the setup script
+cd $HOME/.dotfiles && source ./setup-system.sh

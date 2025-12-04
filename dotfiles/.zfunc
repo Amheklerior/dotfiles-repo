@@ -8,3 +8,9 @@ setbat() {
 replace() {
   rg --files-with-matches "$1" "$3" | xargs tr "$1" "$2"
 }
+
+# defined as functions instead of aliases
+# NOTE: this is necessary to avoid the premature evaluation of $PATH and $FPATH
+#  that happens when using aliases, which causes subsequent changes to those variables to not be reflected
+bpath() { echo $PATH | sed 's/:/\n/g'; }
+fnpath() { echo $FPATH | sed 's/:/\n/g'; }

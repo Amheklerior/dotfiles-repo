@@ -1,5 +1,4 @@
 #!/bin/zsh
-
 local LOG_PREFIX="[system bootstrap]:"
 
 local DOTFILES_REPO="$HOME/.dotfiles"

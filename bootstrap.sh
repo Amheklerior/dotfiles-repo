@@ -9,5 +9,8 @@ else
   cd $HOME/.dotfiles && git pull || exit 1
 fi
 
+# TMP: for testing purposes only
+cd $HOME/.dotfiles && git checkout fixes
+
 # run the setup script
-cd $HOME/.dotfiles && source ./setup-system.sh
+source ./setup-system.sh

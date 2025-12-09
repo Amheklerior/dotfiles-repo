@@ -5,12 +5,12 @@ This is a step-by-step guide for me to use as a reference in setting up a brand 
 ## High level overview
 
 1. [Complete the Apple's welcome journey](./setup-guide.md#complete-the-apples-welcome-journey)
-2. [Connect internet accounts](./setup-guide.md#connect-internet-accounts)
-3. [Setup touch id](./setup-guide.md#setup-touch-id)
-4. [Setup Apple Wallet](./setup-guide.md#setup-apple-wallet)
-5. [Install CLI dev tools](./setup-guide.md#install-cli-dev-tools)
-6. [Install dotfiles](./setup-guide.md#install-dotfiles)
-7. [Setup system prefs](./setup-guide.md#setup-system-preferences)
+2. [Install CLI dev tools](./setup-guide.md#install-cli-dev-tools)
+3. [Install dotfiles](./setup-guide.md#install-dotfiles)
+4. [Setup system prefs](./setup-guide.md#setup-system-preferences)
+5. [Connect internet accounts](./setup-guide.md#connect-internet-accounts)
+6. [Setup touch id](./setup-guide.md#setup-touch-id)
+7. [Setup Apple Wallet](./setup-guide.md#setup-apple-wallet)
 8. [Enable FileVault disk encryption](./setup-guide.md#enable-filevault-disk-encryption)
 9. [Setup apps prefs](./setup-guide.md#setup-apps-preferences)
 10. [Finishing touches](./setup-guide.md#finishing-touches-notification-settings--login-items--apple-intelligence--etc)
@@ -21,7 +21,7 @@ Follow the steps presented to you, making sure you skip migration assistant and 
 
 - set fav languages to: `en-US` and `it`
 - set country to: `Italy`
-- set keyboard input lang to: `en-US` and `it`
+- set keyboard input lang to: `en-US`
 - connect apple account via the personal apple-id
 - create a computer account: `Andrea Amato` (`amheklerior`)
 - check the _allow my apple account to reset this password_ checkbox
@@ -29,6 +29,41 @@ Follow the steps presented to you, making sure you skip migration assistant and 
 - after completion, update the mac to the lates OS version available
 
 _**NOTE**. Leave the rest as is (accessibility settings, services, payment cards, etc..)_
+
+## Install CLI dev tools
+
+Open a new terminal window and run the following shell command:
+
+```sh
+xcode-select --install 
+```
+
+_**NOTE**. an installation window will popup. Follow the instructions._
+
+## Install dotfiles
+
+Open a new terminal window and run the following shell command:
+
+```sh
+# clone this repo via http protocol
+git clone https://github.com/Amheklerior/dotfiles-repo $HOME/.dotfiles
+
+# run the setup script into the current shell
+source $HOME/.dotfiles/bootstrap.sh
+
+# optionally: setup the computer for work
+source $HOME/.dotfiles/scripts/setup_work.sh
+```
+
+## Setup system preferences
+
+Open a new terminal window and run the following shell command:
+
+```sh
+source $HOME/.dotfiles/scripts/load_sys_prefs.sh
+```
+
+Restart the system to make sure all new preferences get loaded.
 
 ## Connect internet accounts
 
@@ -51,36 +86,6 @@ Open the Apple Wallet app and register all payment cards, one by one.
 Make sure to enable `hide-my-email` for payments via Apple Wallet.  
 
 _**NOTE**. This is only relevant on laptop devices (it requires a magic keyboard to be setup on mac mini)_
-
-## Install CLI dev tools
-
-Open a new terminal window and run the following shell command:
-
-```sh
-xcode-select --install 
-```
-
-_**NOTE**. an installation window will popup. Follow the instructions._
-
-## Install dotfiles (TODO: update)
-
-Open a new terminal window and run the following shell command:
-
-```sh
-curl -fsSL "https://raw.githubusercontent.com/Amheklerior/dotfiles-repo/refs/heads/master/bootstrap.sh" | /bin/bash
-```
-
-## Setup system preferences
-
-You can do that as part of the [`bootstrap.sh`](../bootstrap.sh) installation script - the script will prompt if you want to proceed with setting up sys preferences.
-
-Alternatively, open a new terminal window and run the following shell command:
-
-```sh
-source $HOME/.dotfiles/scripts/load_sys_prefs.sh
-```
-
-Restart the system to make sure all new preferences get loaded.
 
 ## Enable FileVault disk encryption
 

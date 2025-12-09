@@ -19,9 +19,11 @@ In a nutshell, to install the dotfiles on a brand new system, simply run the fol
 # install the command line dev tools
 xcode-select --install 
 
-# run the automated system setup script
-curl -fsSL "https://raw.githubusercontent.com/Amheklerior/dotfiles-repo/refs/heads/master/bootstrap.sh" | /bin/bash
+# clone this repo via http protocol
+git clone https://github.com/Amheklerior/dotfiles-repo $HOME/.dotfiles
 
+# run the setup script into the current shell
+source $HOME/.dotfiles/bootstrap.sh
 ```
 
 ## Repository Overview
@@ -38,19 +40,16 @@ dotfiles-repo/
 ├── scripts/
 │   └── # scripts used by the automated setup process
 ⋮
-├── bootstrap.sh # the entry point for the automated setup process
-├── system-setup.sh # the actual setup script
+├── bootstrap.sh # the setup script
 ├── Brewfile # the bundle of all system packages, apps, and vscode extensions to be installed
 └── README.md # this readme file
 ```
 
-The [`bootstrap.sh`](./bootstrap.sh) script is the entry point that will automatically clone this repo into your machine and kick off the automated setup process.
-
-The automated [`setup-system`](./setup-system.sh) script is designed to be [**idempotent**](https://en.wikipedia.org/wiki/Idempotence), which means you can safely run it multiple times and expect operations to be done only once.
+[`bootstrap.sh`](./bootstrap.sh) is the setup script. It's designed to be [**idempotent**](https://en.wikipedia.org/wiki/Idempotence), which means you can safely run it multiple times and expect operations to be done only once.
 
 It runs the setup scripts in the [`scripts/`](./scripts/) directory.
 
-The system package manager it uses is [`homebrew`](https://brew.sh), which gets first installed and then used to install all system packages, apps, fonts, and vscode extensions defined in the [`Brewfile`](./Brewfile).
+It uses [`homebrew`](https://brew.sh) as the system package manager, which gets first installed and then leveraged to install all system packages, apps, fonts, and vscode extensions defined in the [`Brewfile`](./Brewfile).
 
 The actual dotfiles are located in the [`dotfiles/`](./dotfiles/) directory. They are symlinked into the user's `$HOME` dir using [`GNU stow`](https://www.gnu.org/software/stow/). This makes it easy to update them without having to manually synk them between the system and the repo.
 

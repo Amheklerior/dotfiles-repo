@@ -17,7 +17,7 @@ brew install font-victor-mono-nerd-font
 - [Monaspace](https://monaspace.githubnext.com/) (`font-monaspace-nf`) - by GitHub
 - [Lilex](https://lilex.myrt.co/) (`font-lilex-nerd-font`) - by IBM
 
-> **NOTE**: find out more by running `brew search font`
+> **NOTE**: Vicotr Mono is the only font actually installed (the others are present on the Brewfile but commented out to speed up the bootstrap process). Find out more by running `brew search font`.
 
 ## Ghostty
 

@@ -1,11 +1,12 @@
 
 # system nerd fonts
-cask "font-geist-mono-nerd-font"      # by Vercel
-cask "font-jetbrains-mono-nerd-font"  # by JetBrains
 cask "font-victor-mono-nerd-font"     # by Rubjo
-cask "font-zed-mono-nerd-font"        # by Zed Industries
-cask "font-lilex-nerd-font"           # by IBM
-cask "font-monaspace-nf"              # by GitHub
+# NOTE: other fonts:
+# cask "font-geist-mono-nerd-font"      # by Vercel
+# cask "font-jetbrains-mono-nerd-font"  # by JetBrains
+# cask "font-zed-mono-nerd-font"        # by Zed Industries
+# cask "font-lilex-nerd-font"           # by IBM
+# cask "font-monaspace-nf"              # by GitHub
 
 # terminal & shell plugins
 cask "ghostty"

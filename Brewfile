@@ -58,6 +58,9 @@ cask "todoist-app"
 
 # Mac App Store applications
 mas "Pages", id: 409201541
+mas "Keynote", id: 409183694
+mas "Keepa - Price Tracker", id: 1533805339
+mas "The Camelizer", id: 1532579087
 
 # vscode extensions
 vscode "jdinhlife.gruvbox"                  # gruvbox color palette

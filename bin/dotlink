@@ -1,0 +1,103 @@
+#!/usr/bin/env zsh
+
+local link() {
+  stow -d $$DOTFILES_REPO/dotfiles -t $HOME . -S && show
+}
+
+local unlink() {
+  stow -d $DOTFILES_REPO/dotfiles -t $HOME . -D && show
+}
+
+local relink() {
+  stow -d $DOTFILES_REPO/dotfiles -t $HOME . -R && show
+}
+
+local show() {
+  eza --oneline --group-directories-first --icons --treat-dirs-as-files \
+    $HOME/.zshenv $HOME/.zprofile $HOME/.zshrc $HOME/.zwork $HOME/.zalias $HOME/.zfunc \
+    $HOME/.config/delta $HOME/.config/ghostty $HOME/.config/nvim $HOME/.config/starship.toml \
+    $HOME/.ssh/config $HOME/.gitconfig
+}
+
+local fulldoc() {
+  echo "NAME
+    dotlink - manage dotfile symlinks using stow
+
+    SYNOPSIS
+        dotlink <command>
+        dotlink [-h|--help]
+
+    DESCRIPTION
+        dotlink is a wrapper around GNU stow for managing dotfile symlinks.
+        It creates, removes, and recreates symbolic links from the dotfiles
+        repository to your home directory.
+
+    COMMANDS
+        link
+            Create symlinks for all dotfiles in \$DOTFILES_REPO/dotfiles
+            to \$HOME using stow, then display the linked files.
+
+        unlink
+            Remove all dotfile symlinks created by stow, then display
+            the remaining files.
+
+        relink
+            Recreate all symlinks (equivalent to unlink followed by link).
+            Useful when dotfiles have been added or modified.
+
+        show
+            Display the current state of dotfile symlinks without making
+            any changes.
+
+    OPTIONS
+        -h, --help
+            Display this help message and exit.
+
+    EXAMPLES
+        dotlink link
+            Create all dotfile symlinks
+
+        dotlink show
+            View current dotfile symlinks
+
+        dotlink relink
+            Refresh all symlinks"
+}
+
+local shortdoc() {
+  echo "Usage: dotlink <command>
+
+    Commands:
+      link      Create symlinks for dotfiles using stow
+      unlink    Remove dotfile symlinks
+      relink    Recreate symlinks (unlink then link)
+      show      Display current dotfile symlinks
+
+    Options:
+      -h        Show this help message
+      --help    Show detailed documentation"
+}
+
+case $1 in
+  link)
+    link
+    ;;
+  unlink)
+    unlink
+    ;;
+  relink)
+    relink
+    ;;
+  show)
+    show
+    ;;
+  --help)
+    fulldoc
+    ;;
+  -h)
+    shortdoc
+    ;;
+  *)
+    shortdoc
+    ;;
+esac

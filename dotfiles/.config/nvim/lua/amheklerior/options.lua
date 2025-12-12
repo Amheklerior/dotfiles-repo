@@ -37,7 +37,7 @@ set.wrap = false
 set.signcolumn = 'yes'
 
 -- show which line your cursor is on
-set.cursorline = false
+set.cursorline = true
 
 -- minimal number of screen lines to keep around the cursor
 set.scrolloff = 8

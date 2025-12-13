@@ -14,12 +14,12 @@ local kmap = vim.keymap.set
 -- clear highlights on search when pressing <Esc> in normal mode
 kmap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- don't replace yanked content when pasing over a selection
+-- don't replace yanked content when pasting over a selection
 kmap("v", "p", '"_dP')
 
 -- open the file explorer as a column to the left
--- NOTE: 30 is the percentage of the screen the column will occupy
-kmap("n", "<leader>e", "<cmd>Lex 30<CR>", { desc = "Open the file [E]xplorer to the left" })
+-- NOTE: 20 is the percentage of the screen the column will occupy
+kmap("n", "<leader>e", "<cmd>Lex 20<CR>", { desc = "Open the file [E]xplorer to the left" })
 
 -- utilities to quickly test lua code
 kmap("n", "<leader><leader>x", "<cmd>source %<CR><cmd>echo \"executed file\"<CR>", { desc = "E[X]ecute current file (Lua)" })

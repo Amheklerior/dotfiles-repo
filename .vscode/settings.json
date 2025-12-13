@@ -10,5 +10,9 @@
     "*-token": "plaintext",
     "personal": "plaintext",
     "work-server": "plaintext"
-  }
+  },
+  "Lua.diagnostics.globals": [
+    // silence the "undefined global" warning for `vim` in Neovim config files
+    "vim"
+  ]
 }

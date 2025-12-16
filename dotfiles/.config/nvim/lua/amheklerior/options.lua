@@ -7,9 +7,6 @@ local set = vim.opt
 -- enable 24-bit RGB colors
 set.termguicolors = true
 
--- sync clipboard between OS and Neovim
-set.clipboard = 'unnamedplus'
-
 -- highlight all matches on search pattern
 set.hlsearch = true
 
@@ -81,3 +78,10 @@ set.undofile = true
 -- NOTE: normally, normal-word would be treated as three words: normal, -, word
 --  with this option it will be considered as one
 set.iskeyword:append '-'
+
+-- sync clipboard between OS and Neovim
+-- NOTE: Scheduled after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+  set.clipboard = 'unnamedplus'
+end)
+

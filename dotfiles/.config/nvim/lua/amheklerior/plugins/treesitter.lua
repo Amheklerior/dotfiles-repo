@@ -1,10 +1,12 @@
 -- Highlight, indent, fold, and navigate code
 --
--- NOTE: Treesitter privide a framework for building a syntax tree (AST)
+-- Treesitter privide a framework for building a syntax tree (AST)
 --  from the source code, and run queries against it to gather info about the code.
+--
 -- Neovim already comes with a Treesitter "engine", so why this plugin?
 --  This plugins is to download and manage all the different grammars and queries for
 --  various languages (then used by the neovim's treesitter engine)
+-- 
 -- More on:
 --    - https://tree-sitter.github.io/tree-sitter/index.html
 --    - https://youtu.be/09-9LltqWLY?si=yfeIafm19E0WrGXX
@@ -13,6 +15,7 @@ return {
   -- install and manage language parsers and syntax queries
   {
     'nvim-treesitter/nvim-treesitter',
+    enabled = true,
     -- make sure all parsers are updated to the latest version when updating the plugin
     build = ':TSUpdate',
     -- Sets main module to use for opts

@@ -13,3 +13,5 @@ require "amheklerior/autocmd"
 -- load the plugin manager and setup plugins
 require "amheklerior/lazy"
 
+-- load LSP configurations
+require "amheklerior/lsp"

@@ -8,5 +8,6 @@ return {
   { "mason-org/mason.nvim", opts = {} },
 
   -- a collection of community curated LSP servers configurations
+  -- NOTE: overrides are located into the `/after/lsp` directory
   "neovim/nvim-lspconfig",
 }

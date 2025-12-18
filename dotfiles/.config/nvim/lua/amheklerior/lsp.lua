@@ -1,5 +1,9 @@
 
--- see :help vim.diagnostic.Opts
+-- TODO: add my custom keymaps
+-- TODO: highlight all instances of the symbol under the cursor
+-- TODO: integrate autocompletion
+
+-- for info see `:help vim.diagnostic.Opts`
 local setup_diagnostics = function ()
   local severity = vim.diagnostic.severity
 

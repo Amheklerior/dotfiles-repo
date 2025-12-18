@@ -11,9 +11,9 @@ local setup_diagnostics = function ()
     -- use simbols instead of letters if a nerf font is available
     signs = vim.g.have_nerd_font and {
       text = {
-        [severity.ERROR] = '󰅚 ',
-        [severity.WARN] = '󰀪 ',
-        [severity.INFO] = '󰋽 ',
+        [severity.ERROR] = '✖︎ ',
+        [severity.WARN] = '⚠︎ ',
+        [severity.INFO] = 'ℹ ',
         [severity.HINT] = '󰌶 ',
       },
     } or {},

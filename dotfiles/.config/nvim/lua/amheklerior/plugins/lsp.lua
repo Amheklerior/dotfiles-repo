@@ -2,6 +2,7 @@ return {
   {
     -- automatically install and enable LSP servers
     "mason-org/mason-lspconfig.nvim",
+    enabled = true,
     dependencies = {
       -- package manager for Neovim, to install and manage external editor tools
       --  like LSP servers, DAP servers, linters, and formatters.
@@ -21,10 +22,12 @@ return {
       automatic_enable = true,
     },
   },
+
   {
     -- configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
+    enabled = true,
     ft = 'lua',
     opts = {
       library = {

@@ -12,6 +12,7 @@ local prefix = "colorscheme."
 return {
   {
     "ellisonleao/gruvbox.nvim",
+    enabled = true,
     name = prefix .. "gruvbox",
     -- make sure this plugin gets eagerly loaded at startup (since it's the one actually used)
     lazy = false,
@@ -25,6 +26,6 @@ return {
     end,
   },
 
-  { "folke/tokyonight.nvim", name = prefix .. "tokyonight" },
-  { "catppuccin/nvim", name = prefix .. "catppuccin" },
+  { "folke/tokyonight.nvim", enabled = true, name = prefix .. "tokyonight" },
+  { "catppuccin/nvim", enabled = true, name = prefix .. "catppuccin" },
 }

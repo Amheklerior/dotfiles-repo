@@ -7,8 +7,6 @@ lsp_diagnostics.setup()
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
-    vim.notify "setting up LSP..."
-
     local map = function(keys, func, desc, mode)
       mode = mode or 'n'
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -20,6 +18,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, '[T]oggle Inlay [H]ints')
 
     lsp_navigation_keymaps.setup(event, map)
-    lsp_highlight.setup(event)
+    lsp_highlight.setup(event, map)
   end
 })

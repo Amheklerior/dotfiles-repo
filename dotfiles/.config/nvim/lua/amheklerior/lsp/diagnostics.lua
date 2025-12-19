@@ -1,31 +1,9 @@
+local M = {}
 
--- TODO: add my custom keymaps
-
--- TODO: highlight all instances of the symbol under the cursor
-
--- TODO: integrate autocompletion
-
-
-local setup_lsp_keymaps = function ()
-  vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(event)
-      local map = function(keys, func, desc, mode)
-        mode = mode or 'n'
-        vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-      end
-
-      -- toggle inlay hints in your code (sometimes they get annoying)
-      map('<leader>th', function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-      end, '[T]oggle Inlay [H]ints')
-    end,
-  })
-end
+local severity = vim.diagnostic.severity
 
 -- for info see `:help vim.diagnostic.Opts`
-local setup_lsp_diagnostics = function ()
-  local severity = vim.diagnostic.severity
-
+M.setup = function ()
   vim.diagnostic.config {
     severity_sort = true,
     float = { border = 'rounded', source = 'if_many' },
@@ -55,8 +33,6 @@ local setup_lsp_diagnostics = function ()
       end,
     },
   }
-
 end
 
-setup_lsp_keymaps()
-setup_lsp_diagnostics()
+return M

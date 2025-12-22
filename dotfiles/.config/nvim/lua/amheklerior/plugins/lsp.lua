@@ -16,7 +16,7 @@ return {
       -- automatically install these LSP servers
       -- NOTE: it understands server names as defined in nvim-lspconfig and figure out
       -- which Mason package needs to install
-      ensure_installed = { 'lua_ls' },
+      ensure_installed = { 'lua_ls' }, -- TODO: add other languages
 
       -- auto enable them (no need to call `vim.lsp.enable(...)` manually)
       automatic_enable = true,
@@ -38,4 +38,5 @@ return {
   },
 
   -- TODO: consider adding: antosha417/nvim-lsp-file-operations
+  -- TODO: consider adding: j-hui/fidget.nvim
 }

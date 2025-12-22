@@ -14,7 +14,7 @@ M.setup = function ()
       text = {
         [severity.ERROR] = '✖︎ ',
         [severity.WARN] = '⚠︎ ',
-        [severity.INFO] = 'ℹ ',
+        [severity.INFO] = '󰙎 ',
         [severity.HINT] = '󰌶 ',
       },
     } or {},

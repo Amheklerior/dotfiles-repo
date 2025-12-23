@@ -1,5 +1,9 @@
 local M = {}
 
+-- NOTE: The LSP formatter and the editor might apply different styling rules
+--  (ex. a different tab-width). To make sure Neovim and the LSP (an external process)
+--  use the same settings I can use an `.editorconfig` file (https://editorconfig.org/)
+
 M.setup = function(evt)
   local client = vim.lsp.get_client_by_id(evt.data.client_id)
 

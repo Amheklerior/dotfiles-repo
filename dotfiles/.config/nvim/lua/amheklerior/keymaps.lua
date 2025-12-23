@@ -1,4 +1,3 @@
-
 -- NOTE: <cmd> is more performant and avids unnecessary redraw, compared to using `:`
 --  However, <cmd> can create issues for keymaps in visual modes ('v' or 'x') because
 --  <cmd> clears the selection before executing the command. This means that if the command
@@ -22,9 +21,9 @@ kmap("v", "p", '"_dP')
 kmap("n", "<leader>e", "<cmd>Lex 20<CR>", { desc = "Open the file [E]xplorer to the left" })
 
 -- utilities to quickly test lua code
-kmap("n", "<leader><leader>x", "<cmd>source %<CR><cmd>echo \"executed file\"<CR>", { desc = "E[X]ecute current file (Lua)" })
-kmap("n", "<leader>x", "<cmd>.lua<CR><cmd>echo \"executed line\"<CR>", { desc = "E[X]ecute current line (Lua)" })
-kmap("v", "<leader>x", ":lua<CR><cmd>echo \"executed block selection\"<CR>", { desc = "E[X]ecute selected block (Lua)" })
+kmap("n", "<leader><leader>x", "<cmd>source %<CR><cmd>echo \"executed file\"<CR>", { desc = "E[X]ecute current file" })
+kmap("n", "<leader>x", "<cmd>.lua<CR><cmd>echo \"executed line\"<CR>", { desc = "E[X]ecute current line" })
+kmap("v", "<leader>x", ":lua<CR><cmd>echo \"executed block selection\"<CR>", { desc = "E[X]ecute selected block" })
 
 -- disable arrow keys in normal mode, to force using hjkl keys instead
 kmap("n", "<left>", '<cmd>echo "Use h to move left!"<CR>')
@@ -33,11 +32,11 @@ kmap("n", "<up>", '<cmd>echo "Use k to move up!"<CR>')
 kmap("n", "<down>", '<cmd>echo "Use j to move down!"<CR>')
 
 -- make split navigation easier
--- use SHIFT+<hjkl> to switch between windows
-kmap("n", "<S-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-kmap("n", "<S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-kmap("n", "<S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-kmap("n", "<S-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- use CTRL+<hjkl> to switch between windows
+kmap("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+kmap("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+kmap("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+kmap("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- NOTE: some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -56,4 +55,3 @@ kmap("v", "<S-h>", "<gv", { desc = "Indent left" })
 kmap("v", "<S-l>", ">gv", { desc = "Indent right" })
 kmap("v", "<S-k>", ":move '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 kmap("v", "<S-j>", ":move '>+1<CR>gv=gv", { desc = "Move selected lines down" })
-

@@ -1,22 +1,42 @@
 return {
+
   {
-    -- automatically install and enable LSP servers
-    "mason-org/mason-lspconfig.nvim",
-    enabled = true,
+    -- a helper to automatically install LSP servers, formatters, etc
+    "WhoIsSethDaniel/mason-tool-installer",
     dependencies = {
-      -- package manager for Neovim, to install and manage external editor tools
-      --  like LSP servers, DAP servers, linters, and formatters.
+      -- the core package manager for Neovim, to install and manage
+      --  external editor tools like LSP servers, DAP servers, linters, and formatters.
+      -- NOTE: plugin must be immediately loaded (`opts = {}`)
+      { "mason-org/mason.nvim", opts = {} },
+
+      -- in order to use lspconfig names (example: "lua_ls" instead of "lua-language-server")
+      "mason-org/mason-lspconfig.nvim",
+    },
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+        "stylua",
+
+        -- TODO: add language servers, formatters, and linters
+      },
+    },
+  },
+
+  {
+    -- a bridge between mason-org/mason and nvim-lspconfig plugins
+    "mason-org/mason-lspconfig.nvim",
+    enable = false,
+    dependencies = {
       { "mason-org/mason.nvim", opts = {} },
 
       -- a collection of community curated LSP servers configurations
-      -- NOTE: overrides are located into the `/after/lsp` directory
+      -- INFO: overrides are located into the `/after/lsp` directory
       "neovim/nvim-lspconfig",
     },
     opts = {
-      -- automatically install these LSP servers
-      -- NOTE: it understands server names as defined in nvim-lspconfig and figure out
-      -- which Mason package needs to install
-      ensure_installed = { 'lua_ls' }, -- TODO: add other languages
+      -- explicitly set to an empty table since installation is
+      --  handled by mason-tool-installer
+      ensure_installed = {},
 
       -- auto enable them (no need to call `vim.lsp.enable(...)` manually)
       automatic_enable = true,
@@ -26,13 +46,13 @@ return {
   {
     -- configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
-    'folke/lazydev.nvim',
+    "folke/lazydev.nvim",
     enabled = true,
-    ft = 'lua',
+    ft = "lua",
     opts = {
       library = {
         -- load luvit types when the `vim.uv` word is found
-        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
       },
     },
   },

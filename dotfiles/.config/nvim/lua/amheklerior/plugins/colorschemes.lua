@@ -1,4 +1,3 @@
-
 -- Here you can find every color palette plugin currently installed
 
 -- NOTE: make sure to add the following spec props to the color plugin actually used:
@@ -26,6 +25,6 @@ return {
     end,
   },
 
-  { "folke/tokyonight.nvim", enabled = true, name = prefix .. "tokyonight" },
-  { "catppuccin/nvim", enabled = true, name = prefix .. "catppuccin" },
+  { "folke/tokyonight.nvim", enabled = false, name = prefix .. "tokyonight" },
+  { "catppuccin/nvim",       enabled = false, name = prefix .. "catppuccin" },
 }

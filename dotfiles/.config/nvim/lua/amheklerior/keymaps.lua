@@ -21,9 +21,9 @@ kmap("v", "p", '"_dP')
 kmap("n", "<leader>e", "<cmd>Lex 20<CR>", { desc = "Open the file [E]xplorer to the left" })
 
 -- utilities to quickly test lua code
-kmap("n", "<leader><leader>x", "<cmd>source %<CR><cmd>echo \"executed file\"<CR>", { desc = "E[X]ecute current file" })
-kmap("n", "<leader>x", "<cmd>.lua<CR><cmd>echo \"executed line\"<CR>", { desc = "E[X]ecute current line" })
-kmap("v", "<leader>x", ":lua<CR><cmd>echo \"executed block selection\"<CR>", { desc = "E[X]ecute selected block" })
+kmap("n", "<leader><leader>x", '<cmd>source %<CR><cmd>echo "executed file"<CR>', { desc = "E[X]ecute current file" })
+kmap("n", "<leader>x", '<cmd>.lua<CR><cmd>echo "executed line"<CR>', { desc = "E[X]ecute current line" })
+kmap("v", "<leader>x", ':lua<CR><cmd>echo "executed block selection"<CR>', { desc = "E[X]ecute selected block" })
 
 -- disable arrow keys in normal mode, to force using hjkl keys instead
 kmap("n", "<left>", '<cmd>echo "Use h to move left!"<CR>')

@@ -1,14 +1,13 @@
-
 -- set the installation path for the Lazy plugin manager to $XDG_DATA_HOME/nvim/lazy/lazy.nvim
 -- NOTE: $XDG_DATA_HOME/nvim/lazy dir is where all plugins will be installed, including lazy.nvim
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 -- install Lazy, if not already installed
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
+    error("Error cloning lazy.nvim:\n" .. out)
   end
 end
 
@@ -17,7 +16,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 -- setup lazy.nvim
 -- NOTE: full list of all the config options at https://lazy.folke.io/configuration
-require('lazy').setup({
+require("lazy").setup {
   -- install and setup plugins from the plugins directory
   spec = {
     { import = "amheklerior.plugins" },
@@ -29,7 +28,6 @@ require('lazy').setup({
   -- silently reload ui on config file changes
   change_detection = {
     enabled = true,
-    notify = false
+    notify = false,
   },
-})
-
+}

@@ -1,8 +1,8 @@
 -- set <space> as the leader key
 -- NOTE: Must happen before plugins are loaded, otherwhise
 --  they'll be configured with the wrong leader-key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- set this global variable to easily enable/disable settings
 --  which requires a nerd font to be installed

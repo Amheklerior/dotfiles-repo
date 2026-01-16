@@ -13,13 +13,13 @@ M.setup = function(evt)
     return
   end
   ---@diagnostic disable-next-line: missing-parameter, param-type-mismatch
-  if not client:supports_method('textDocument/formatting') then
+  if not client:supports_method "textDocument/formatting" then
     vim.notify "format on save: lsp doesn't support formatting!"
     return
   end
 
   -- setup an autocommand to format the current buffer on save
-  vim.api.nvim_create_autocmd('BufWritePre', {
+  vim.api.nvim_create_autocmd("BufWritePre", {
     buffer = evt.buf,
     callback = function()
       vim.lsp.buf.format { bufnr = evt.buf, id = client.id }

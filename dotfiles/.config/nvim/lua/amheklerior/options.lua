@@ -31,7 +31,7 @@ set.shiftwidth = 2
 set.wrap = false
 
 -- keep sign column by default
-set.signcolumn = 'yes'
+set.signcolumn = "yes"
 
 -- show which line your cursor is on
 set.cursorline = true
@@ -45,7 +45,7 @@ set.breakindent = true
 
 -- sets how neovim will display certain whitespace characters in the editor.
 set.list = true
-set.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+set.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- enforce new vertical splits to open to the right of the current window
 set.splitright = true
@@ -69,7 +69,7 @@ set.updatetime = 300
 set.timeoutlen = 300
 
 -- shows effect of commands (like sed for example) directly on the buffer
-set.inccommand = 'nosplit'
+set.inccommand = "nosplit"
 
 -- save undo history
 set.undofile = true
@@ -77,11 +77,10 @@ set.undofile = true
 -- consider hiphen-separated tokens a single "word"
 -- NOTE: normally, normal-word would be treated as three words: normal, -, word
 --  with this option it will be considered as one
-set.iskeyword:append '-'
+set.iskeyword:append "-"
 
 -- sync clipboard between OS and Neovim
 -- NOTE: Scheduled after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
-  set.clipboard = 'unnamedplus'
+  set.clipboard = "unnamedplus"
 end)
-

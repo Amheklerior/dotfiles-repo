@@ -1,0 +1,4 @@
+# you can find stylua config options here:
+# https://github.com/JohnnyMorganz/StyLua
+
+call_parentheses = "None"

@@ -3,7 +3,7 @@
 local LOG_PREFIX="[Install packages and apps]:"
 
 # install packages, fonts, apps, and vscode extensions from the Brewfile bundle
-echo "$LOG_PREFIX isntalling packages, apps, and vscode extensions from the bundle..."
+echo "$LOG_PREFIX installing packages, apps, and vscode extensions from the bundle..."
 brew bundle check || brew bundle install || :
 
 # install utility to monitor plist changes (of great help in automating app prefs)

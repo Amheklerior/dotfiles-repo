@@ -23,7 +23,7 @@ fi
 if [[ $(npm whoami --registry=$HH_NPM_REGISTRY 2>/dev/null) == "Amheklerior" ]]; then
   echo "$LOG_PREFIX already logged in to HH npm registry via GitHub account"
 else
-  cat $GITHUB_TOKEN | pbcopy
+  echo $GITHUB_TOKEN | pbcopy
   echo "$LOG_PREFIX token successfully copied on your clipboard!"
 
   # logging in to the HH npm registry

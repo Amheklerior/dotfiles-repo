@@ -49,10 +49,14 @@ Open a new terminal window and run the following shell command:
 git clone https://github.com/Amheklerior/dotfiles-repo $HOME/.dotfiles
 
 # run the setup script into the current shell
-source $HOME/.dotfiles/bootstrap.sh
+cd $HOME/.dotfiles && source ./bootstrap.sh
+```
 
-# optionally: setup the computer for work
-source $HOME/.dotfiles/scripts/setup_work.sh
+Optionally, run the following command into a new shell:
+
+```sh
+# setup the computer for work
+source ./scripts/setup_work_stuff.sh
 ```
 
 ## Setup system preferences

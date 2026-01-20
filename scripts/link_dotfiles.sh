@@ -21,9 +21,4 @@ else
   stow -d $DOTFILES -t $HOME . -S
 fi
 
-# load dotfiles into current shell
-source $HOME/.zshenv
-source $HOME/.zprofile
-source $HOME/.zshrc
-
 echo "$LOG_PREFIX dotfiles linked successfully"

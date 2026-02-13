@@ -44,10 +44,10 @@ _run link_dotfiles
 _run set_precommit_hook
 _run setup_dev_env
 
-_prompt_for_confirmation "Do you want to setup touch id for sudo access?"
-if _has_confirmed; then _run enable-touchid-for-sudo-access done
-
 # switch dotfiles repo from https protocol to SSH
 cd $DOTFILES_REPO && git remote set-url origin git@github.com:Amheklerior/dotfiles-repo.git
+
+_prompt_for_confirmation "Do you want to setup touch id for sudo access?"
+if _has_confirmed; then _run enable-touchid-for-sudo-access; fi
 
 echo "$LOG_PREFIX Done! You're ready to rock \m/"

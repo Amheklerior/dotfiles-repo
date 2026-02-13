@@ -25,7 +25,6 @@ return {
   {
     -- a bridge between mason-org/mason and nvim-lspconfig plugins
     "mason-org/mason-lspconfig.nvim",
-    enable = false,
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
 
@@ -40,20 +39,6 @@ return {
 
       -- auto enable them (no need to call `vim.lsp.enable(...)` manually)
       automatic_enable = true,
-    },
-  },
-
-  {
-    -- configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
-    "folke/lazydev.nvim",
-    enabled = true,
-    ft = "lua",
-    opts = {
-      library = {
-        -- load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
     },
   },
 

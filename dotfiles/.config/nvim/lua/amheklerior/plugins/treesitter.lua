@@ -16,10 +16,12 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     enabled = true,
+    -- make sure it doesn't get lazly loaded, as the new rewrite doesn't support it
+    lazy = false,
     -- make sure all parsers are updated to the latest version when updating the plugin
     build = ":TSUpdate",
     -- sets main module to use for opts
-    main = "nvim-treesitter.configs",
+    main = "nvim-treesitter",
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       -- list of language parsers. Can choose 'all' or 'maintained', instead of listing specific parsers

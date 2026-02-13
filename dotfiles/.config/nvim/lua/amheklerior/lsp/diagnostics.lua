@@ -3,7 +3,7 @@ local M = {}
 local severity = vim.diagnostic.severity
 
 -- for info see `:help vim.diagnostic.Opts`
-M.setup = function()
+M.setup = function(map)
   vim.diagnostic.config {
     -- don't update messages with every keystroke (wait till the end of the edit)
     update_in_insert = false,
@@ -35,6 +35,16 @@ M.setup = function()
       },
     } or {},
   }
+
+  -- toggle diagnostics for this buffer
+  map("<leader>td", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+  end, "[T]oggle [D]iagnostics")
+
+  -- open the diagnostic floating window to show the full message
+  map("<leader>sd", function()
+    vim.diagnostic.open_float()
+  end, "[S]how [D]iagnostic floating panel")
 end
 
 return M

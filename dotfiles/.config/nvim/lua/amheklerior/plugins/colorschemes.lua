@@ -26,5 +26,5 @@ return {
   },
 
   { "folke/tokyonight.nvim", enabled = false, name = prefix .. "tokyonight" },
-  { "catppuccin/nvim",       enabled = false, name = prefix .. "catppuccin" },
+  { "catppuccin/nvim", enabled = false, name = prefix .. "catppuccin" },
 }

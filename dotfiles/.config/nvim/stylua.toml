@@ -2,3 +2,6 @@
 # https://github.com/JohnnyMorganz/StyLua
 
 call_parentheses = "None"
+line_endings = "Unix"
+indent_type = "Spaces"
+indent_width = 2

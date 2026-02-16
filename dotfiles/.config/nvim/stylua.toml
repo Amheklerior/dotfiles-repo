@@ -1,5 +1,4 @@
-# you can find stylua config options here:
-# https://github.com/JohnnyMorganz/StyLua
+# you can find stylua config options here: https://github.com/JohnnyMorganz/StyLua
 
 call_parentheses = "None"
 line_endings = "Unix"

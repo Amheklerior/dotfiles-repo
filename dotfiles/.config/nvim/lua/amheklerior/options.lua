@@ -84,3 +84,6 @@ set.iskeyword:append "-"
 vim.schedule(function()
   set.clipboard = "unnamedplus"
 end)
+
+-- add a rounded border to floating popup windows
+set.winborder = "rounded"

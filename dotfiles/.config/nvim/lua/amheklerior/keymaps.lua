@@ -16,8 +16,7 @@ kmap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- don't replace yanked content when pasting over a selection
 kmap("v", "p", '"_dP')
 
--- open the file explorer as a column to the left
--- NOTE: 20 is the percentage of the screen the column will occupy
+-- open the file explorer as a column to the left (20% width)
 kmap("n", "<leader>e", "<cmd>Lex 20<CR>", { desc = "Open the file [E]xplorer to the left" })
 
 -- utilities to quickly test lua code

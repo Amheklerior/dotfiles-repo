@@ -10,57 +10,56 @@
 -- More on:
 --    - https://tree-sitter.github.io/tree-sitter/index.html
 --    - https://youtu.be/09-9LltqWLY?si=yfeIafm19E0WrGXX
---
+
+-- TODO: other interesting applications to explore:
+-- Treesitter + textobjects   -> https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+-- Show your current context  -> https://github.com/nvim-treesitter/nvim-treesitter-context
+-- Rainbow brackets           -> https://github.com/p00f/nvim-ts-rainbow
+-- Incremental selection      -> :help nvim-treesitter-incremental-selection-mod`
+
 return {
-  -- install and manage language parsers and syntax queries
   {
+    -- NOTE: After the rewrite, this plugin no longer provides features like autoinstalling parsers, or enabling
+    --  functionalities like syntax highlighting, folding, indentation, or incremental code selection.
     "nvim-treesitter/nvim-treesitter",
-    enabled = true,
     -- make sure it doesn't get lazly loaded, as the new rewrite doesn't support it
     lazy = false,
     -- make sure all parsers are updated to the latest version when updating the plugin
     build = ":TSUpdate",
-    -- sets main module to use for opts
-    main = "nvim-treesitter",
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      -- list of language parsers. Can choose 'all' or 'maintained', instead of listing specific parsers
-      ensure_installed = {
+    -- manually enable treesitter functionalities for specifies filetypes
+    config = function()
+      local filetypes = {
         "bash",
         "c",
         "diff",
         "html",
+        "json",
         "lua",
         "luadoc",
         "markdown",
         "markdown_inline",
         "query",
+        "toml",
         "vim",
         "vimdoc",
-      },
+      }
 
-      -- autoinstall missing language parsers when entering a buffer
-      auto_install = true,
+      -- autoisntall language parsers
+      -- replicate `ensure_installed`, runs asynchronously, skips existing languages
+      -- INFO: parsers and queries will be installed into the $XDG_DATA_HOME/nvim/site directory
+      -- WARN: requires `tree-sitter-cli` to be installed on your system
+      require("nvim-treesitter").install(filetypes)
 
-      -- ↓↓↓ treesitter applications ↓↓↓
-      highlight = {
-        enable = true,
-        -- some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  if you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { "ruby" },
-      },
-      indent = {
-        enable = true,
-        disable = { "ruby" },
-      },
-    },
-
-    -- TODO: other interesting applications to explore:
-    -- Treesitter + textobjects   -> https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-    -- Show your current context  -> https://github.com/nvim-treesitter/nvim-treesitter-context
-    -- Rainbow brackets           -> https://github.com/p00f/nvim-ts-rainbow
-    -- Code folding               -> https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#folding
-    -- Incremental selection      -> :help nvim-treesitter-incremental-selection-mod`
+      -- enable syntax highlighting
+      -- replicate `highlight = { enable = true }`
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = filetypes,
+        callback = function()
+          -- debug print
+          vim.notify("starting treesitter parser for: " .. vim.bo.filetype)
+          vim.treesitter.start()
+        end,
+      })
+    end,
   },
 }

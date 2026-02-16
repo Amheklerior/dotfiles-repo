@@ -34,6 +34,7 @@ return {
         "diff",
         "html",
         "json",
+        "ledger",
         "lua",
         "luadoc",
         "markdown",

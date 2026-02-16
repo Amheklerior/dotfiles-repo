@@ -29,6 +29,7 @@ brew "jq"
 brew "mas"
 brew "chafa"
 brew "tlrc"
+brew "ledger"
 
 # development and languages
 brew "docker"

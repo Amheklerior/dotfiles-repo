@@ -24,7 +24,12 @@ return {
         "markdownlint",
 
         -- json files
-        "jsonlint"
+        "jsonlint",
+
+        -- zsh/bash scripting
+        "bashls",
+        "shfmt",
+        "shellcheck",
       },
     },
   },
@@ -60,6 +65,7 @@ return {
       lint.linters_by_ft = {
         markdown = { "markdownlint" },
         json = { "jsonlint" },
+        zsh = { "shellcheck" },
       }
 
       -- Create autocommand which carries out the actual linting on the specified events.

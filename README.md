@@ -23,7 +23,7 @@ xcode-select --install
 git clone https://github.com/Amheklerior/dotfiles-repo $HOME/.dotfiles
 
 # run the setup script into the current shell
-source $HOME/.dotfiles/bootstrap.sh
+cd $HOME/.dotfiles && source ./bootstrap.sh
 ```
 
 ## Repository Overview

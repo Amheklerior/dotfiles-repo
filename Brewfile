@@ -29,6 +29,7 @@ brew "jq"
 brew "mas"
 brew "chafa"
 brew "tlrc"
+brew "ledger"
 
 # development and languages
 brew "docker"
@@ -40,6 +41,7 @@ brew "gitleaks"
 brew "fnm"
 brew "go"
 brew "lua"
+brew "tree-sitter-cli"
 
 # editors
 brew "neovim"

@@ -14,6 +14,7 @@ This is a step-by-step guide for me to use as a reference in setting up a brand 
 8. [Enable FileVault disk encryption](./setup-guide.md#enable-filevault-disk-encryption)
 9. [Setup apps prefs](./setup-guide.md#setup-apps-preferences)
 10. [Finishing touches](./setup-guide.md#finishing-touches-notification-settings--login-items--apple-intelligence--etc)
+11. [Setup for Work](./setup-guide.md#setup-for-work)
 
 ## Complete the Apple's welcome journey
 
@@ -52,13 +53,6 @@ git clone https://github.com/Amheklerior/dotfiles-repo $HOME/.dotfiles
 cd $HOME/.dotfiles && source ./bootstrap.sh
 ```
 
-Optionally, run the following command into a new shell:
-
-```sh
-# setup the computer for work
-source ./scripts/setup_work_stuff.sh
-```
-
 ## Setup system preferences
 
 Open a new terminal window and run the following shell command:
@@ -75,7 +69,6 @@ Go to `System Settings` > `Internet Accounts` and add the following accounts:
 
 - my main personal google account for email and calendar
 - my secondary yahoo account for emails only
-- my work google account for calendar only
 
 ## Setup touch id
 
@@ -133,8 +126,9 @@ Open **Apple Mail** app to connect with the accounts and sync all mails. Then do
 Open **Apple Notes** app to sync all notes from iCloud. Then do the following:
 
 - Set gallery view over list view
-- Go to `Settings` and sort notes by title
-- Go to `Settings` and enable touch-id to unlock notes
+- Go to `Settings` and set to sort notes by title
+- Go to `Settings` and uncheck to automatically sort checked items in a list
+- Go to `Settings` and enable touch-id to unlock notes (if applies)
 
 ### Calendar
 
@@ -165,7 +159,7 @@ Open a **Finder** window and do the following:
 
 - Go to `Settings` > `Sidebar` and remove _recent_, _applications_, and add the _home dir_
 - Go to `Settings` > `Tags` and delete all tags
-- From the sidebar, add _Inbox_, _Ongoing/Tmp_, _Recources_, and _Archive_ iCloud dirs
+- From the sidebar, add _Inbox_, _Recources_, and _Archive_ iCloud dirs
 - From the sidebar, set the following order: _home_, _desktop_, _documents_, _downloads_, _airdrop_
 
 ### Telegram
@@ -205,3 +199,13 @@ To disable SIP, reboot the machine in recovery mode and run `csrutil disable` fr
 To reenable SIP, reboot the machine in recovery mode and run `csrutil enable` from a terminal window.
 
 _**NOTE**. To [reboot the machine in recovery mode](https://support.apple.com/en-gb/guide/mac-help/mchl82829c17/mac), completely shut down the machine, then hold the power button until you see "loading options..." on screen. Then select "recovery mode"._
+
+## Setup for Work
+
+To setup the system for work, first run the following:
+
+```sh
+source ./scripts/setup_work_stuff.sh
+```
+
+Go to `System Settings` > `Internet Accounts` and add the work Microsoft account for email and calendar.

@@ -1,5 +1,10 @@
 # dotfiles repo
 
+> [!IMPORTANT]
+> This repository is archived, and I no longer use it.
+>
+> I've migrated my setup to the [Amheklerior/sysenv](https://github.com/Amheklerior/sysenv) repository.
+
 This is my personal dotfiles repo. Feel free to explore it, copy bits and pieces for your own dotfiles, or fork the whole repo.
 
 > **! NOTE**\
